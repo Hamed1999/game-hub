@@ -1,4 +1,4 @@
-npm create vite@7.1.9
+npm create vite@4.1.0 -> 7.1.9
 npm install
 git init
 git add .

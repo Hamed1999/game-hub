@@ -1,7 +1,11 @@
+# Create Vite-React-Typescript Project and init git repository
 npm create vite@4.1.0 -> 7.1.9
 npm install
 git init
 git add .
 git commit -m "Initial Commit"
 --------------------------------------------------------------------------------------------------------------------------
-
+# Instal Chakra UI library as instructions on https://chakra-ui.com/docs/get-started/frameworks/vite
+npm i @chakra-ui/react @emotion/react
+npx @chakra-ui/cli snippet add
+npm i -D vite-tsconfig-paths

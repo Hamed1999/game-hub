@@ -1,10 +1,24 @@
 import { Menu, Button, VStack, HStack, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { useColorMode } from "./ui/color-mode";
-import usePlatforms, { Platform } from "../hooks/usePlatforms";
 
-const SortSelector = () => {
-  const { data, error } = usePlatforms();
+interface Props {
+  sortOrder: string;
+  onSelectOrder: (sortOrder: string) => void;
+}
+
+const SortSelector = ({ sortOrder, onSelectOrder }: Props) => {
+  const sortOrders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date Added" },
+    { value: "name", label: "Name" },
+    { value: "-release", label: "Release Date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average Rating" },
+  ];
+  const currentOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  )?.label;
   const { colorMode } = useColorMode();
   const bgColorMap: { [key: string]: string } = {
     light: "gray.200",
@@ -14,7 +28,6 @@ const SortSelector = () => {
     light: "black",
     dark: "white",
   };
-  if (error) return null;
   return (
     <Menu.Root>
       <Menu.Trigger
@@ -24,30 +37,21 @@ const SortSelector = () => {
       >
         <VStack>
           <HStack>
-            {"Order by: Relevance"}
+            Order by: {currentOrder || "Relevance"}
             <BsChevronDown />
           </HStack>
           <Portal>
             <Menu.Positioner>
               <Menu.Content borderRadius={6}>
-                <Menu.Item key={1} value="Relevance">
-                  Relevance
-                </Menu.Item>
-                <Menu.Item key={2} value="Date Adedd">
-                  Date Adedd
-                </Menu.Item>
-                <Menu.Item key={3} value="Name">
-                  Name
-                </Menu.Item>
-                <Menu.Item key={4} value="Release Date">
-                  Release Date
-                </Menu.Item>
-                <Menu.Item key={5} value="Popularity">
-                  Popularity
-                </Menu.Item>
-                <Menu.Item key={6} value="Average rating">
-                  Average rating
-                </Menu.Item>
+                {sortOrders.map((sortOrder) => (
+                  <Menu.Item
+                    key={sortOrder.value}
+                    value={sortOrder.value}
+                    onClick={() => onSelectOrder(sortOrder.value)}
+                  >
+                    {sortOrder.label}
+                  </Menu.Item>
+                ))}
               </Menu.Content>
             </Menu.Positioner>
           </Portal>

@@ -43,13 +43,17 @@ const SortSelector = ({ sortOrder, onSelectOrder }: Props) => {
           <Portal>
             <Menu.Positioner>
               <Menu.Content borderRadius={6}>
-                {sortOrders.map((sortOrder) => (
+                {sortOrders.map((order) => (
                   <Menu.Item
-                    key={sortOrder.value}
-                    value={sortOrder.value}
-                    onClick={() => onSelectOrder(sortOrder.value)}
+                    key={order.value}
+                    value={order.value}
+                    onClick={() => onSelectOrder(order.value)}
+                    fontWeight={order.value === sortOrder ? "bold" : "normal"}
+                    color={
+                      order.value === sortOrder ? "rgba(92, 58, 151, 1)" : ""
+                    }
                   >
-                    {sortOrder.label}
+                    {order.label}
                   </Menu.Item>
                 ))}
               </Menu.Content>

@@ -1,9 +1,14 @@
 import { Menu, Button, VStack, HStack, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { useColorMode } from "./ui/color-mode";
-import usePlatforms from "../hooks/usePlatforms";
+import usePlatforms, { Platform } from "../hooks/usePlatforms";
 
-const PlatformSelector = () => {
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
+
+const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
   const { data, error } = usePlatforms();
   const { colorMode } = useColorMode();
   const bgColorMap: { [key: string]: string } = {
@@ -24,14 +29,26 @@ const PlatformSelector = () => {
       >
         <VStack>
           <HStack>
-            Platforms
+            {selectedPlatform?.name ? selectedPlatform.name : "Platforms"}
             <BsChevronDown />
           </HStack>
           <Portal>
             <Menu.Positioner>
               <Menu.Content borderRadius={6}>
                 {data.map((platform) => (
-                  <Menu.Item key={platform.id} value={platform.name}>
+                  <Menu.Item
+                    key={platform.id}
+                    value={platform.name}
+                    onClick={() => onSelectPlatform(platform)}
+                    fontWeight={
+                      platform.id === selectedPlatform?.id ? "bold" : "normal"
+                    }
+                    color={
+                      platform.id === selectedPlatform?.id
+                        ? "rgba(92, 58, 151, 1)"
+                        : ""
+                    }
+                  >
                     {platform.name}
                   </Menu.Item>
                 ))}

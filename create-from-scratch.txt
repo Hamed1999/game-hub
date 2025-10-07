@@ -9,7 +9,10 @@ git commit -m "Initial Commit"
 npm i @chakra-ui/react @emotion/react
 npx @chakra-ui/cli snippet add
 npm i -D vite-tsconfig-paths
---------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 # Install axios to send http requests
 npm i axios
+--------------------------------------------------------------------------------------------------------------------------
+# Instal React icons 
+npm i react-icons@4.7.1
 

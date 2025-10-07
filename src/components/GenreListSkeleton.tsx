@@ -6,12 +6,9 @@ const GenreListSkeleton = () => {
     <List.Root unstyled={true}>
       {data.map((d) => {
         return (
-          <>
-            <Skeleton />
-            <List.Item key={d} paddingBottom={3}>
-              <SkeletonText />
-            </List.Item>
-          </>
+          <List.Item key={d} paddingBottom={3}>
+            <SkeletonText />
+          </List.Item>
         );
       })}
     </List.Root>

@@ -9,8 +9,8 @@ const CriticScore = ({ score }: Props) => {
     score > 75
       ? "rgba(45, 149, 37, 0.2)"
       : score > 60
-      ? "rgba(247, 251, 0, 0.21)"
-      : "#d731312d";
+      ? "rgba(255, 255, 2, 0.2)"
+      : "";
 
   return (
     <Badge

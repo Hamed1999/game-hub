@@ -5,9 +5,10 @@ import GenreListSkeleton from "./GenreListSkeleton";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-function GenreList({ onSelectGenre }: Props) {
+function GenreList({ selectedGenre, onSelectGenre }: Props) {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
   // if (isLoading) return <Spinner />;
@@ -28,6 +29,8 @@ function GenreList({ onSelectGenre }: Props) {
                 variant="ghost"
                 maxWidth="full"
                 onClick={() => onSelectGenre(genre)}
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                color={genre.id === selectedGenre?.id ? "rgba(92, 58, 151, 1)" : ""}
               >
                 {genre.name}
               </Button>

@@ -9,14 +9,14 @@ interface Props {
   gameQuery: GameQuery;
 }
 
-const GameGrid = ({gameQuery }: Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = Array.from({ length: 24 }, (_, i) => i + 1);
 
   return (
     <>
       {error && <Text>{error}</Text>}
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={5} padding={10}>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 3 }} gap={6} padding={10}>
         {isLoading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>

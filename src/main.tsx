@@ -9,7 +9,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     {/* <ChakraProvider value={customSystem || defaultSystem}> */}
-    <Provider >
+    <Provider  >
       <App />
     </Provider>
     {/* </ChakraProvider> */}

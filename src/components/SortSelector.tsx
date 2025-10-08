@@ -22,7 +22,7 @@ const SortSelector = ({ sortOrder, onSelectOrder }: Props) => {
   const { colorMode } = useColorMode();
   const bgColorMap: { [key: string]: string } = {
     light: "gray.200",
-    dark: "gray.500",
+    dark: "gray.900",
   };
   const colorMap: { [key: string]: string } = {
     light: "black",

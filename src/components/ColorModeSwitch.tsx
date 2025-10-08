@@ -6,7 +6,9 @@ const ColorModeSwitch = () => {
   return (
     <HStack spaceX={0} paddingRight="10px">
       <ColorModeButton />
-      <Text fontSize={14} >{colorMode === "dark" ? "Dark Mode" : "Light Mode"}</Text>
+      <Text fontSize={14} whiteSpace="nowrap">
+        {colorMode === "dark" ? "Dark Mode" : "Light Mode"}
+      </Text>
     </HStack>
   );
 };

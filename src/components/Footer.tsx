@@ -9,6 +9,7 @@ import {
   Text,
   HStack,
   Icon,
+  Strong,
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useColorMode } from "./ui/color-mode";
@@ -32,7 +33,7 @@ const Footer = () => {
           {/* Branding / About */}
           <Box mb={{ base: 6, md: 0 }}>
             <Heading as="h3" size="md" mb={2} color={headingColor}>
-              Game Land
+              Games Land
             </Heading>
             <Text fontSize="sm" maxW="sm" lineHeight="taller">
               Discover and track your favorite video games. Browse by genre,
@@ -70,8 +71,8 @@ const Footer = () => {
           pt={4}
         >
           <Text fontSize="sm">
-            &copy; {new Date().getFullYear()} Game Land. All rights reserved.
-            Developed by Hamed Salmanizadegan.
+            &copy; {new Date().getFullYear()} Games Land. All rights reserved.
+            Developed by <Strong>Hamed Salmanizadegan</Strong>.
           </Text>
 
           <HStack spaceX={4}>

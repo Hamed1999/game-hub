@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import Footer from "./components/Footer";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -22,8 +23,8 @@ function App() {
     <div className="App">
       <Grid
         templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`,
+          base: `"nav" "main" "footer"`,
+          lg: `"nav nav" "aside main" "footer footer"`,
         }}
         templateColumns={{
           base: "1fr",
@@ -68,6 +69,9 @@ function App() {
             </Flex>
           </Box>
           <GameGrid gameQuery={gameQuery} />
+        </GridItem>
+        <GridItem area={"footer"}>
+          <Footer />
         </GridItem>
       </Grid>
     </div>
